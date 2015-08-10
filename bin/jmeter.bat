@@ -82,7 +82,7 @@ set NEW=-XX:NewSize=128m -XX:MaxNewSize=128m
 set SURVIVOR=-XX:SurvivorRatio=8 -XX:TargetSurvivorRatio=50%
 set TENURING=-XX:MaxTenuringThreshold=2
 rem Java 8 remove Permanent generation, don't settings the PermSize
-if %current_minor% LEQ "8" (
+if %current_minor% LSS 8 (
     rem Increase MaxPermSize if you use a lot of Javascript in your Test Plan :
     set PERM=-XX:PermSize=64m -XX:MaxPermSize=128m
 )
